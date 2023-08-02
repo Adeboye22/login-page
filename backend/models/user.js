@@ -13,10 +13,6 @@ const userReg = new mongoose.Schema({
         minlenght: 2,
         trim: true
     },
-    dob: {
-        type: Date,
-        required: true,
-    },
     email: {
         type: String,
         required: true,
