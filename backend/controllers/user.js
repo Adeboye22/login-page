@@ -2,7 +2,7 @@ require('dotenv').config();
 const bcrypt = require('bcrypt');
 const User = require('../models/user');
 
-register = async(req, res) => {
+exports.register = async(req, res) => {
 const {firstname, lastname, email, password} = req.body;
 const cryptPassword = bcrypt.hashSync(password, 10);
 
@@ -17,5 +17,3 @@ const newUser = {firstname: firstname, lastname: lastname, email: email, passwor
         })
 
 };
-
-module.exports = register;

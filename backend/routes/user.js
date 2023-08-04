@@ -1,4 +1,4 @@
-const register = require('../controllers/user');
+const { register } = require('../controllers/user');
 const express = require('express');
 
 const router = express.Router();
