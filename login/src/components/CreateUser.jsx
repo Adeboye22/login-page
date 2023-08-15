@@ -10,12 +10,12 @@ const CreateUser = () => {
   });
 
   const handleInput = e => {
-    setValue(prev => ({...prev, [e.target.name]: [e.target.value]}))
+    setValue({...value, [e.target.name]: [e.target.value]})
   }
 
   const handleSubmit= (e) => {
     e.preventDefault();
-    axios.post('http://127.0.0.1:8080/register', {value})
+    axios.post('/register', {value})
     .then(response => console.log(response))
     .catch(err => console.log(err))
   }  
