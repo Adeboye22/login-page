@@ -15,7 +15,7 @@ const CreateUser = () => {
 
   const handleSubmit= (e) => {
     e.preventDefault();
-    axios.post('/register', {value})
+    axios.post('http://localhost:8080/register', {value})
     .then(response => console.log(response))
     .catch(err => console.log(err))
   }  
