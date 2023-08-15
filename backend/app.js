@@ -9,7 +9,10 @@ app = express();
 port = process.env.PORT || 3000;
 
 // middlewares
-app.use(cors());
+app.use(cors({
+    oringin: 'http://localhost:3000',
+    credential: true,
+}));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({
     extended: true

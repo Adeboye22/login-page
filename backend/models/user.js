@@ -24,7 +24,8 @@ const userReg = new mongoose.Schema({
         type: String,
         required: true,
         maxlength: 100,
-        minlenght: 3
+        minlenght: 3,
+        trim: true
     }
 }, {timestamps: true});
 
