@@ -10,7 +10,7 @@ const CreateUser = () => {
   });
 
   const handleInput = e => {
-    setValue({...value, [e.target.name]: [e.target.value]})
+    setValue((prevData)=>({...prevData, [e.target.name]: [e.target.value]}))
   }
 
   const handleSubmit= (e) => {
