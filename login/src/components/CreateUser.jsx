@@ -1,18 +1,21 @@
 import React, { useState } from 'react'
 import axios from 'axios'
+import './signupValidation'
+import sgnValidate from './signupValidation';
 
 const CreateUser = () => {
-  const [value, setValue] = useState ({
+  const [value, setValue] = useState({
     firstname: '',
     lastname: '',
     email: '',
     password: ''
   });
 
+  const [err, setErr] = useState({})
+
   const handleInput = e => {
     const name = e.target.name;
     const value = e.target.value;
-    console.log(name, value)
     setValue(prev => {
       return {...prev, [name]: value}
     })
@@ -20,8 +23,11 @@ const CreateUser = () => {
 
   const handleSubmit= (e) => {
     e.preventDefault();
+    setErr(sgnValidate(value));
     axios.post('http://localhost:8080/register', value)
-    .then(response => console.log(response))
+    .then(response => {
+      console.log(response);
+    })
     .catch(err => console.log(err))
   }  
   return (
