@@ -4,9 +4,9 @@ const User = require('../models/user');
 
 exports.register = async(req, res) => {
 const {firstname, lastname, email, password} = req.body;
-//const cryptPassword = bcrypt.hashSync(password, 10);
+const cryptPassword = bcrypt.hashSync(password, 10);
 
-const newUser = {firstname: firstname, lastname: lastname, email: email, password: password/*cryptPassword*/ };
+const newUser = {firstname: firstname, lastname: lastname, email: email, password: cryptPassword };
 
     User.create(newUser)
         .then(() => {
@@ -17,3 +17,6 @@ const newUser = {firstname: firstname, lastname: lastname, email: email, passwor
         })
 
 };
+
+exports.login = async (req, res) => {
+}
