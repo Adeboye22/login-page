@@ -19,4 +19,14 @@ const newUser = {firstname: firstname, lastname: lastname, email: email, passwor
 };
 
 exports.login = async (req, res) => {
+    const {email, password} = req.body;
+    const user = await User.findOne({email: email});
+    if (!user) {
+        res.send("User not found");
+    }
+    const plainPassword = bcrypt.compareSync(password, user.password);
+    if (plainPassword) {
+        res.send("login successful");
+    }
+
 }
