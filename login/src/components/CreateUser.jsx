@@ -11,7 +11,7 @@ const CreateUser = () => {
     password: ''
   });
 
-  const [err, setErr] = useState({})
+  const [errors, setErrors] = useState({})
 
   const handleInput = e => {
     const name = e.target.name;
@@ -23,7 +23,7 @@ const CreateUser = () => {
 
   const handleSubmit= (e) => {
     e.preventDefault();
-    setErr(sgnValidate(value));
+    setErrors(sgnValidate(value));
     axios.post('http://localhost:8080/register', value)
     .then(response => {
       console.log(response);
