@@ -22,7 +22,7 @@ const Validate = (value) => {
         errors.lastname = ""
     }
     if(value.email === ""){
-        errors.lastname = "This field cannot be empty!"
+        errors.email = "This field cannot be empty!"
     } else if(!email_pattern.test(value.email)){
         errors.email = "The mail you entered is incorrect!"
     } else{

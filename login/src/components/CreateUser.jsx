@@ -1,7 +1,7 @@
-import React, { useState } from 'react'
-import axios from 'axios'
-import './signupValidation'
-import Validate from './signupValidation'
+import React, { useState } from 'react';
+import axios from 'axios';
+import './signupValidation';
+import Validate from './signupValidation';
 
 const CreateUser = () => {
   const [value, setValue] = useState({
@@ -42,8 +42,10 @@ const CreateUser = () => {
         {errors.lastname && <span className="text-red-500">{errors.lastname}</span>}
         <h3>Email:</h3>
         <input type="email" name='email' onChange={handleInput} placeholder='email' className='border border-gray-100 p-1'/>
+        {errors.email && <span className = 'text-red-500'>{errors.email}</span>}
         <h3>Password:</h3>
         <input type="password" name='password' onChange={handleInput} placeholder='**********' className='border border-gray-100 p-1'/>
+        {errors.password && <span className = 'text-red-500'>{errors.password}</span>}
         <button type="submit" className='bg-white p-2 border-gray-100 border w-full'>Submit</button>
       </form>
     </div>
