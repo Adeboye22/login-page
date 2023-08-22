@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import axios from 'axios'
 import './signupValidation'
-import sgnValidate from './signupValidation';
+import Validate from './signupValidation'
 
 const CreateUser = () => {
   const [value, setValue] = useState({
@@ -23,7 +23,7 @@ const CreateUser = () => {
 
   const handleSubmit= (e) => {
     e.preventDefault();
-    setErrors(sgnValidate(value));
+    setErrors(Validate(value));
     axios.post('http://localhost:8080/register', value)
     .then(response => {
       console.log(response);
@@ -36,8 +36,10 @@ const CreateUser = () => {
       <form onSubmit={handleSubmit} className='flex flex-col gap-4'>
         <h3>First Name:</h3>
         <input type="text" name='firstname' onChange={handleInput} placeholder='first name' className='border border-gray-100 p-1'/>
+        {errors.firstname && <span className="text-red-500">{errors.firstname}</span>}
         <h3>Last Name:</h3>
         <input type="text" name='lastname' onChange={handleInput} placeholder='last name' className='border border-gray-100 p-1'/>
+        {errors.lastname && <span className="text-red-500">{errors.lastname}</span>}
         <h3>Email:</h3>
         <input type="email" name='email' onChange={handleInput} placeholder='email' className='border border-gray-100 p-1'/>
         <h3>Password:</h3>

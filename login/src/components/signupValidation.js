@@ -1,5 +1,5 @@
-const sgnValidate = (value) => {
-    let error = {}
+const Validate = (value) => {
+    const errors = {}
     
     // Use a regex constraint for the form patterns
     const firstName_pattern = /^[a-zA-Z]{2,}$/
@@ -8,33 +8,35 @@ const sgnValidate = (value) => {
     const password_pattern = /^[a-zA-Z0-9]{3,}$/
 
     if(value.firstname === ""){
-        error.firstname = "This field cannot be empty!"
+        errors.firstname = "This field cannot be empty!"
     } else if(!firstName_pattern.test(value.firstname)){
-        error.firstname = "Input more than 2 characters with a capital letter"
+        errors.firstname = "Input more than 2 characters with a capital letter";
     } else{
-        error.firstname = ""
+        errors.firstname = ""
     }
     if(value.lastname === ""){
-        error.lastname = "This field cannot be empty!"
+        errors.lastname = "This field cannot be empty!"
     } else if(!lastName_pattern.test(value.lastname)){
-        error.lastname = "Input more than 2 characters with a capital letter"
+        errors.lastname = "Input more than 2 characters with a capital letter"
     } else{
-        error.lastname = ""
+        errors.lastname = ""
     }
     if(value.email === ""){
-        error.lastname = "This field cannot be empty!"
+        errors.lastname = "This field cannot be empty!"
     } else if(!email_pattern.test(value.email)){
-        error.email = "The mail you entered is incorrect!"
+        errors.email = "The mail you entered is incorrect!"
     } else{
-        error.email = ""
+        errors.email = ""
     }
     if(value.password === ""){
-        error.password = "This field cannot be empty!"
+        errors.password = "This field cannot be empty!"
     } else if(!password_pattern.test(value.password)){
-        error.password = "Password must be more than three characters!"
+        errors.password = "Password must be more than three characters!"
     } else{
-        error.password = ""
+        errors.password = ""
     }
+
+    return errors;
 }
 
-export default sgnValidate
+export default Validate
