@@ -19,7 +19,7 @@ const UserLogin = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     setError(Validate(value))
-    axios.post('http://localhost:8080/register', value)
+    axios.post('http://localhost:8080/login', value)
     .then(response => console.log(response))
     .catch(err => console.log(err))
   }
